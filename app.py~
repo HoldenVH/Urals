@@ -15,8 +15,6 @@ paswd = "diva"
 
 app.secret_key = os.urandom(32)
 
-
-# root route renders welcome.html and login.html
 @app.route("/")
 def root():
     if "username" in session:
@@ -25,7 +23,6 @@ def root():
         return render_template("login.html")
 
 
-# action from form, redirects to root
 @app.route("/auth", methods = ["POST", "GET"])
 def authenticate():
     if request.form != {}:
@@ -35,7 +32,7 @@ def authenticate():
         ""
     return redirect(url_for("root"))
     
-# logs out and redirects to root
+
 @app.route("/logout")
 def logout():
     session.pop("username")
