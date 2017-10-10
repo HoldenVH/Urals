@@ -35,10 +35,12 @@ def authenticate():
     #diag:
     print (request.method)
     print (request.args)
+    if request.args=={}:
+        return redirect(url_for("hello_world"))
     if request.args['username'] == user:
         if request.args['password'] == pwd:
             session['username'] = request.args['username']
-            return redirect(url_for(hello_world))
+            return redirect(url_for("hello_world"))
         else:
             return "Error: wrong password"
     else:
