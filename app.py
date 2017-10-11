@@ -2,9 +2,9 @@
 #Karina Ionkina and Holden Higgins                                          
 #SoftDev1 pd7                                                                 
 #HW08-  Do I Know You?                                                      
-#2017-10-06  
+#2017-10-11  
 
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask,flash, render_template, request, session, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -29,7 +29,11 @@ def root():
 @app.route("/auth", methods = ["POST", "GET"])
 def authenticate():
     if request.form != {}:
-        if request.form["user"] == user and request.form["paswd"] == paswd:
+        if request.form["user"] != user:
+            flash('Thy username is incorrect. Tryeth Again?')
+        elif request.form["paswd"] != paswd:
+            flash('Thy password is incorrect. Tryeth Again?')
+        elif request.form["user"] == user and request.form["paswd"] == paswd:
             session['username'] = request.form["user"]
     else:
         ""

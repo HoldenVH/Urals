@@ -6,12 +6,9 @@
 <form action = "/auth" method = "POST">
   Username: <input type = "text" name = "user" placeholder = "soft"> <br>
   Password :  <input type = "text" name = "paswd" placeholder = "diva"> <br>
-<br>
-<input type = "submit" value = "Login">
-
-<br>
 {% set msgs = get_flashed_messages() %}
-<br> <font color = "red"> {% for msg in msgs %} {{msg}} {% endfor %} </style>
+<br> <style color = "red"> {% for msg in msgs %} {{msg}} 
+<input type = "submit" value = "Login">
 </form>
 
 {% endblock content %}

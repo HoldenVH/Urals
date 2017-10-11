@@ -3,7 +3,7 @@
 {% block content %}
 
 <center>
-<h1> WELCOME TO THE MACHINE </h1>
+<h1> WELCOME TO THE PAGE!!!! </h1>
 
 <form action = "/logout">
 <input type = "submit" value = "logout">
